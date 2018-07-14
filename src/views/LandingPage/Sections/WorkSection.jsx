@@ -13,24 +13,30 @@ import Button from "components/CustomButtons/Button.jsx";
 import workStyle from "assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx";
 
 class WorkSection extends React.Component {
+  constructor() {
+    super();
+    this.state = { 
+      name: '',
+      email: '',
+      phone: '',
+    }
+  }
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem cs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Work with us</h2>
+            <h2 className={classes.title}>Get the full details sent to your inbox</h2>
             <h4 className={classes.description}>
-              Divide details about your product or agency work into parts. Write
-              a few lines about each one and contact us about any further
-              collaboration. We will responde get back to you in a couple of
-              hours.
+              With so many wonderful features, this home is 
+              not to be missed.
             </h4>
             <form>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
                   <CustomInput
-                    labelText="Your Name"
+                    labelText="Name"
                     id="name"
                     formControlProps={{
                       fullWidth: true
@@ -39,35 +45,32 @@ class WorkSection extends React.Component {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
                   <CustomInput
-                    labelText="Your Email"
+                    labelText="Email"
                     id="email"
                     formControlProps={{
                       fullWidth: true
                     }}
                   />
                 </GridItem>
-                <CustomInput
-                  labelText="Your Message"
-                  id="message"
-                  formControlProps={{
-                    fullWidth: true,
-                    className: classes.textArea
-                  }}
-                  inputProps={{
-                    multiline: true,
-                    rows: 5
-                  }}
-                />
-                <GridContainer justify="center">
-                  <GridItem
-                    xs={12}
-                    sm={12}
-                    md={4}
-                    className={classes.textCenter}
-                  >
-                    <Button color="primary">Send Message</Button>
-                  </GridItem>
-                </GridContainer>
+                <GridItem xs={12} sm={12} md={6}>
+                  <CustomInput
+                    labelText="Phone"
+                    id="email"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                  />
+                </GridItem>
+              </GridContainer>
+              <GridContainer justify="center">
+                <GridItem
+                  xs={12}
+                  sm={12}
+                  md={4}
+                  className={classes.textCenter}
+                >
+                  <Button color="danger">Send me the Details</Button>
+                </GridItem>
               </GridContainer>
             </form>
           </GridItem>

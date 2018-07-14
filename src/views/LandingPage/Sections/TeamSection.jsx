@@ -4,8 +4,6 @@ import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
-// @material-ui/icons
-
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -16,9 +14,8 @@ import CardFooter from "components/Card/CardFooter.jsx";
 
 import teamStyle from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.jsx";
 
-import team1 from "assets/img/faces/avatar.jpg";
-import team2 from "assets/img/faces/christian.jpg";
-import team3 from "assets/img/faces/kendall.jpg";
+import team1 from "assets/img/faces/mario.jpg";
+import team2 from "assets/img/faces/giro.jpg";
 
 class TeamSection extends React.Component {
   render() {
@@ -30,127 +27,81 @@ class TeamSection extends React.Component {
     );
     return (
       <div className={classes.section}>
-        <h2 className={classes.title}>Here is our team</h2>
+        <h2 className={classes.title}>Meet the Team</h2>
         <div>
           <GridContainer>
-            <GridItem xs={12} sm={12} md={4}>
+            <GridItem xs={12} sm={12} md={6}>
               <Card plain>
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={team1} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Gigi Hadid
+                  Mario Martin
                   <br />
-                  <small className={classes.smallTitle}>Model</small>
+                  <small className={classes.smallTitle}>Team Contact</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                    My name is Mario Martin. I am a developer/investor 
+                    and a Managing Partner at Common Realty Group. I am here 
+                    to answer any questions you might have about the property. 
+                    Feel free to contact Giro Dibiase if you have an offer.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
                   <Button
                     justIcon
+                    href="tel:617-902-0219"
                     color="transparent"
                     className={classes.margin5}
                   >
-                    <i className={classes.socials + " fab fa-twitter"} />
+                    <i className={classes.socials + " fa fa-phone"} />
                   </Button>
                   <Button
                     justIcon
+                    href="mailto:mario@commonrealtygroup.com"
                     color="transparent"
                     className={classes.margin5}
                   >
-                    <i className={classes.socials + " fab fa-instagram"} />
-                  </Button>
-                  <Button
-                    justIcon
-                    color="transparent"
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fab fa-facebook"} />
+                    <i className={classes.socials + " fa fa-envelope"} />
                   </Button>
                 </CardFooter>
               </Card>
             </GridItem>
-            <GridItem xs={12} sm={12} md={4}>
+            <GridItem xs={12} sm={12} md={6}>
               <Card plain>
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={team2} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Christian Louboutin
+                  Giro Dibiase
                   <br />
-                  <small className={classes.smallTitle}>Designer</small>
+                  <small className={classes.smallTitle}>Broker of Record</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                    My name is Giro Dibiase.  I am the broker of record at 
+                    Common Realty Group.  Drop Mario a line if you have any questions.
+                    I represent the seller of this wonderful property and am hopeful 
+                    I'll meet you at my next showing.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
                   <Button
                     justIcon
+                    href="tel:617-902-0219"
                     color="transparent"
                     className={classes.margin5}
                   >
-                    <i className={classes.socials + " fab fa-twitter"} />
+                    <i className={classes.socials + " fa fa-phone"} />
                   </Button>
                   <Button
                     justIcon
+                    href="mailto:giro@commonrealtygroup.com"
                     color="transparent"
                     className={classes.margin5}
                   >
-                    <i className={classes.socials + " fab fa-linkedin"} />
-                  </Button>
-                </CardFooter>
-              </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4}>
-              <Card plain>
-                <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                  <img src={team3} alt="..." className={imageClasses} />
-                </GridItem>
-                <h4 className={classes.cardTitle}>
-                  Kendall Jenner
-                  <br />
-                  <small className={classes.smallTitle}>Model</small>
-                </h4>
-                <CardBody>
-                  <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
-                  </p>
-                </CardBody>
-                <CardFooter className={classes.justifyCenter}>
-                  <Button
-                    justIcon
-                    color="transparent"
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fab fa-twitter"} />
-                  </Button>
-                  <Button
-                    justIcon
-                    color="transparent"
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fab fa-instagram"} />
-                  </Button>
-                  <Button
-                    justIcon
-                    color="transparent"
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fab fa-facebook"} />
+                    <i className={classes.socials + " fa fa-envelope"} />
                   </Button>
                 </CardFooter>
               </Card>

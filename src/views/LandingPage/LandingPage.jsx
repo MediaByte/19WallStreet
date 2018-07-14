@@ -19,8 +19,9 @@ import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.js
 
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.jsx";
-import TeamSection from "./Sections/TeamSection.jsx";
+import Photos from "./Sections/Photos.js";
 import WorkSection from "./Sections/WorkSection.jsx";
+import TeamSection from "./Sections/TeamSection.jsx";
 
 const dashboardRoutes = [];
 
@@ -32,7 +33,7 @@ class LandingPage extends React.Component {
         <Header
           color="transparent"
           routes={dashboardRoutes}
-          brand="Material Kit React"
+          brand="Common Realty Group"
           rightLinks={<HeaderLinks />}
           fixed
           changeColorOnScroll={{
@@ -45,22 +46,22 @@ class LandingPage extends React.Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Your Story Starts With Us.</h1>
+                <h1 className={classes.title}>Don't Miss Out On This One.</h1>
                 <h4>
-                  Every landing page needs a small description after the big
-                  bold title, that's why we added this text here. Add here all
-                  the information that can make you or your product create the
-                  first impression.
+                  Gorgeous, old-style cape, single family home for sale in 
+                  highly desirable Brackett School district. Get the full
+                  details sent to your inbox. Located on a private, quiet, 
+                  side street in Arlington, MA
                 </h4>
                 <br />
                 <Button
                   color="danger"
-                  size="lg"
+                  size="md"
                   href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fas fa-play" />Watch video
+                  <i className="fas fa-envelope" />Send me the Details
                 </Button>
               </GridItem>
             </GridContainer>
@@ -69,6 +70,7 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <ProductSection />
+            <Photos />
             <TeamSection />
             <WorkSection />
           </div>
