@@ -45,9 +45,9 @@ function Footer({ ...props }) {
             className={aClasses}
             target="_blank"
           >
-            Creative Tim
+            Common Realty Group
           </a>{" "}
-          for a better web.
+          for a better Community.
         </div>
       </div>
     </footer>
