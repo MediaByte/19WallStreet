@@ -46,7 +46,7 @@ class LandingPage extends React.Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Don't Miss Out On This One.</h1>
+                <h1 className={classes.title}>Just Listed.</h1>
                 <h4>
                   Gorgeous, old-style cape, single family home for sale in 
                   highly desirable Brackett School district. Get the full
