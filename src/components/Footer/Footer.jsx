@@ -28,7 +28,7 @@ function Footer({ ...props }) {
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="http://CRG-Rentals.herokuapp.com"
+                href="http://CRGRentals.herokuapp.com"
                 className={classes.block}
                 target="_blank"
               >
@@ -38,16 +38,7 @@ function Footer({ ...props }) {
           </List>
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
-          <a
-            href="https://www.creative-tim.com"
-            className={aClasses}
-            target="_blank"
-          >
-            Common Realty Group
-          </a>{" "}
-          for a better Community.
+          &copy; {1900 + new Date().getYear()} Common Realty Group, All Rights Reserved.
         </div>
       </div>
     </footer>

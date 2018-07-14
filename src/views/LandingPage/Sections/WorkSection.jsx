@@ -2,8 +2,6 @@ import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
-// @material-ui/icons
-
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -21,6 +19,44 @@ class WorkSection extends React.Component {
       phone: '',
     }
   }
+
+
+  onNameChange(event) {
+    this.setState({
+      name: event.target.value
+    })
+  }
+
+   onEmailChange(event) {
+    this.setState({
+      email: event.target.value
+    })
+  }
+
+   onPhoneChange(event) {
+    this.setState({
+      phone: event.target.value
+    })
+  }
+
+  onSendEmail () {
+    fetch('http://crg-server.herokuapp.com/api/sendEmail', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        phone: this.state.phone,
+        replyto: 'Giro@CommonRealtyGroup.com',
+        subject: "19 Wall Street, Arlington, MA",
+        message: `Hello ${this.state.name}, as promised here is a link to the full details on the property located at 19 Wall Street, Arlington, MA - https://tinyurl.com/y7rw9fwp - Let me know when you want to schedule a property tour. Feel free to text me at 617-899-1097 or reply to this email if you have any additional questions.`
+      })
+    })
+      .then(response => response.json())
+      .then(result => console.log(result))
+      .catch(console.log);
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -39,7 +75,8 @@ class WorkSection extends React.Component {
                     labelText="Name"
                     id="name"
                     formControlProps={{
-                      fullWidth: true
+                      fullWidth: true,
+                      onChange: (event) => this.onNameChange(event)
                     }}
                   />
                 </GridItem>
@@ -48,16 +85,18 @@ class WorkSection extends React.Component {
                     labelText="Email"
                     id="email"
                     formControlProps={{
-                      fullWidth: true
+                      fullWidth: true,
+                      onChange: (event) => this.onEmailChange(event)
                     }}
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
                   <CustomInput
                     labelText="Phone"
-                    id="email"
+                    id="phone"
                     formControlProps={{
-                      fullWidth: true
+                      fullWidth: true,
+                      onChange: (event) => this.onPhoneChange(event)
                     }}
                   />
                 </GridItem>
@@ -69,7 +108,12 @@ class WorkSection extends React.Component {
                   md={4}
                   className={classes.textCenter}
                 >
-                  <Button color="danger">Send me the Details</Button>
+                  <Button 
+                    color="danger"
+                    onClick={this.onSendEmail()}
+                  >
+                    Send me the Details
+                  </Button>
                 </GridItem>
               </GridContainer>
             </form>

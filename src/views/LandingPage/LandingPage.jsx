@@ -4,7 +4,8 @@ import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
-// @material-ui/icons
+//Scroll to Form
+import scrollToComponent from 'react-scroll-to-component';
 
 // core components
 import Header from "components/Header/Header.jsx";
@@ -49,17 +50,16 @@ class LandingPage extends React.Component {
                 <h1 className={classes.title}>Just Listed.</h1>
                 <h4>
                   Gorgeous, old-style cape, single family home for sale in 
-                  highly desirable Brackett School district. Get the full
-                  details sent to your inbox. Located on a private, quiet, 
-                  side street in Arlington, MA
+                  highly desirable Brackett School district. Located on a private, quiet, 
+                  side street in Arlington, MA. Get the full
+                  details sent to your inbox. 
                 </h4>
                 <br />
                 <Button
                   color="danger"
-                  size="md"
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  target="_blank"
+                  size="lg"
                   rel="noopener noreferrer"
+                  onClick={() => scrollToComponent(this.WorkSection, { align: 'top' })}
                 >
                   <i className="fas fa-envelope" />Send me the Details
                 </Button>
@@ -72,7 +72,9 @@ class LandingPage extends React.Component {
             <ProductSection />
             <Photos />
             <TeamSection />
-            <WorkSection />
+            <WorkSection 
+              ref={(section) => { this.WorkSection = section; }}
+            />
           </div>
         </div>
         <Footer />

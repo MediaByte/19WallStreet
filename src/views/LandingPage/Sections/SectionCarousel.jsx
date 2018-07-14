@@ -37,7 +37,7 @@ class SectionCarousel extends React.Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: true
+      autoplay: false
     };
     return (
       <div className={classes.section}>
