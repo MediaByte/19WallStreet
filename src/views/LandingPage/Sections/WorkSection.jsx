@@ -7,6 +7,7 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Button from "components/CustomButtons/Button.jsx";
+import EmailSent from './emailSent'
 
 import workStyle from "assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx";
 
@@ -17,9 +18,17 @@ class WorkSection extends React.Component {
       name: '',
       email: '',
       phone: '',
+      open: false,
     }
   }
 
+ handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
   onNameChange(event) {
     this.setState({
@@ -39,26 +48,28 @@ class WorkSection extends React.Component {
     })
   }
 
-  onSendEmail () {
+  onSendEmail (name, email, phone) {
     fetch('http://crg-server.herokuapp.com/api/sendEmail', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        name: this.state.name,
-        email: this.state.email,
-        phone: this.state.phone,
+        name: name,
+        email: email,
+        phone: phone,
         replyto: 'Giro@CommonRealtyGroup.com',
         subject: "19 Wall Street, Arlington, MA",
-        message: `Hello ${this.state.name}, as promised here is a link to the full details on the property located at 19 Wall Street, Arlington, MA - https://tinyurl.com/y7rw9fwp - Let me know when you want to schedule a property tour. Feel free to text me at 617-899-1097 or reply to this email if you have any additional questions.`
+        message: `Hello ${name}, as promised here is a link to the full details on the property located at 19 Wall Street, Arlington, MA - https://tinyurl.com/y7rw9fwp - Let me know when you want to schedule a property tour. Feel free to text me at 617-899-1097 or reply to this email if you have any additional questions.`
       })
     })
-      .then(response => response.json())
-      .then(result => console.log(result))
+      .then(status => {
+        console.log(status)
+      })
       .catch(console.log);
   }
 
   render() {
     const { classes } = this.props;
+    const { name, email, phone } = this.state
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
@@ -110,10 +121,14 @@ class WorkSection extends React.Component {
                 >
                   <Button 
                     color="danger"
-                    onClick={this.onSendEmail()}
+                    onClick={this.onSendEmail(name, email, phone)}
                   >
                     Send me the Details
                   </Button>
+                  <EmailSent 
+                    open={this.state.open}
+                    handleClose={this.handleClose}
+                  />
                 </GridItem>
               </GridContainer>
             </form>
