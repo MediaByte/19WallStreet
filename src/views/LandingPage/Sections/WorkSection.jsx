@@ -7,6 +7,8 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Button from "components/CustomButtons/Button.jsx";
+
+//Project components
 import EmailSent from './emailSent'
 
 import workStyle from "assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx";
@@ -30,25 +32,26 @@ class WorkSection extends React.Component {
     this.setState({ open: false });
   };
 
-  onNameChange(event) {
+  onNameChange = (event) => {
     this.setState({
       name: event.target.value
     })
   }
 
-   onEmailChange(event) {
+   onEmailChange = (event) => {
     this.setState({
       email: event.target.value
     })
   }
 
-   onPhoneChange(event) {
+   onPhoneChange = (event) => {
     this.setState({
       phone: event.target.value
     })
   }
 
-  onSendEmail (name, email, phone) {
+  onSendEmail = () => {
+    const { name, email, phone } = this.state
     fetch('http://crg-server.herokuapp.com/api/sendEmail', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -61,15 +64,19 @@ class WorkSection extends React.Component {
         message: `Hello ${name}, as promised here is a link to the full details on the property located at 19 Wall Street, Arlington, MA - https://tinyurl.com/y7rw9fwp - Let me know when you want to schedule a property tour. Feel free to text me at 617-899-1097 or reply to this email if you have any additional questions.`
       })
     })
-      .then(status => {
-        console.log(status)
+      .then(response => {
+        if (response.status === 200) {
+          this.setState({
+            open: true
+          })
+        } else {
+          alert('There was a problem sending your email. Please check your email and try again')
+        }
       })
       .catch(console.log);
   }
-
   render() {
     const { classes } = this.props;
-    const { name, email, phone } = this.state
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
@@ -79,7 +86,7 @@ class WorkSection extends React.Component {
               With so many wonderful features, this home is 
               not to be missed.
             </h4>
-            <form>
+            <div>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
                   <CustomInput
@@ -121,17 +128,18 @@ class WorkSection extends React.Component {
                 >
                   <Button 
                     color="danger"
-                    onClick={this.onSendEmail(name, email, phone)}
+                    onClick={this.onSendEmail}
                   >
                     Send me the Details
                   </Button>
                   <EmailSent 
                     open={this.state.open}
                     handleClose={this.handleClose}
+                    email={this.state.email}
                   />
                 </GridItem>
               </GridContainer>
-            </form>
+            </div>
           </GridItem>
         </GridContainer>
       </div>

@@ -36,7 +36,7 @@ class EmailSent extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} color="primary">
-              Disagree
+              OK
             </Button>
           </DialogActions>
         </Dialog>
