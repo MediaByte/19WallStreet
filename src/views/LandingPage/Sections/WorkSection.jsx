@@ -86,7 +86,7 @@ class WorkSection extends React.Component {
               With so many wonderful features, this home is 
               not to be missed.
             </h4>
-            <div>
+            <form>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
                   <CustomInput
@@ -139,7 +139,7 @@ class WorkSection extends React.Component {
                   />
                 </GridItem>
               </GridContainer>
-            </div>
+            </form>
           </GridItem>
         </GridContainer>
       </div>
