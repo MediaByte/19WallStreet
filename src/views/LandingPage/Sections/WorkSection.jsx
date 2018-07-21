@@ -61,7 +61,7 @@ class WorkSection extends React.Component {
         phone: phone,
         replyto: 'Giro@CommonRealtyGroup.com',
         subject: "19 Wall Street, Arlington, MA",
-        message: `Hello ${name}, as promised here is a link to the full details on the property located at 19 Wall Street, Arlington, MA - https://tinyurl.com/y7rw9fwp - Let me know when you want to schedule a property tour. Feel free to text me at 617-899-1097 or reply to this email if you have any additional questions.`
+        message: `As promised here is a link to the full details on the property located at 19 Wall Street, Arlington, MA - https://tinyurl.com/y8zs37or - Let me know when you want to schedule a property tour. Feel free to text me at 617-899-1097 or reply to this email if you have any additional questions.`
       })
     })
       .then(response => {
