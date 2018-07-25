@@ -1,2 +1,2 @@
-# [19 Wall Street](https://creativetimofficial.github.io/material-kit-react/#/)
-[![version][version-badge]][CHANGELOG] [![license][license-badge]][LICENSE]
+# [19 Wall Street](https://19wall.com)
+
